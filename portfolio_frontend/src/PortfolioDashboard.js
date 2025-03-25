@@ -8,7 +8,7 @@ export default function PortfolioDashboard() {
   const [stats, setStats] = useState(null);
   const [recommendations, setRecommendations] = useState(null);
 
-  const API_BASE = "https://portfolio-backend.onrender.com";
+  const API_BASE = "https://portfolio-management-qfrm.onrender.com";
 
   const handleFileUpload = async (event) => {
     const files = Array.from(event.target.files);
