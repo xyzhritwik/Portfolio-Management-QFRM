@@ -19,19 +19,24 @@ def upload_reports():
     if not files:
         return jsonify({"error": "No files uploaded"}), 400
 
-    saved_paths = []
-    for file in files:
-        path = os.path.join("temp", file.filename)
-        file.save(path)
-        saved_paths.append(path)
-
     try:
-        portfolio_df = parse_reports(saved_paths)
-        stats = calculate_portfolio_stats(portfolio_df)
-        recommendations = generate_recommendations(portfolio_df)
-        return jsonify({"stats": stats, "recommendations": recommendations})
+        # Dummy test response for now
+        return jsonify({
+            "stats": {
+                "cagr": 12.34,
+                "alpha": 0.15,
+                "beta": 1.02,
+                "sharpe": 1.25,
+                "sortino": 1.60
+            },
+            "recommendations": [
+                {"stock": "HDFCBANK", "action": "Buy", "confidence": 91.5},
+                {"stock": "ICICI", "action": "Sell", "confidence": 78.3}
+            ]
+        })
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 if __name__ == "__main__":
     os.makedirs("temp", exist_ok=True)
