@@ -8,6 +8,10 @@ from utils.ml_model import generate_recommendations
 
 app = Flask(__name__)
 CORS(app)
+@app.route("/")
+def index():
+    return "Portfolio Backend is Live 🎯"
+
 
 @app.route("/upload", methods=["POST"])
 def upload_reports():
