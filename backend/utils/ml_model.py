@@ -1,7 +1,7 @@
 import pandas as pd
 import joblib
 
-model = joblib.load("models/portfolio_model.pkl")
+model = joblib.load("backend/models/portfolio_model.pkl")
 
 def generate_recommendations(portfolio_df):
     features = portfolio_df[['Buy Price', 'Current Price', 'Quantity']]
